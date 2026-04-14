@@ -1,0 +1,41 @@
+body, html {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: all 0.2s;
+}
+
+#wrapper {
+    text-align: center;
+}
+
+.zen-mode {
+    background-color: #f0f4f0;
+    color: #556b2f;
+    font-family: serif;
+}
+
+#flower {
+    font-size: 80px;
+    margin-bottom: 20px;
+    transition: transform 2s;
+}
+
+.glitch-mode {
+    color: white;
+    font-family: 'Courier New', monospace;
+}
+
+.glitch-mode #flower {
+    transform: scale(5) rotate(45deg);
+    color: red;
+    filter: blur(2px);
+}
+
+.glitch-mode #wrapper {
+    text-align: left;
+    padding: 20px;
+}
