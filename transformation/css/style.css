@@ -1,41 +1,72 @@
-body, html {
+body {
     margin: 0;
-    height: 100vh;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
-    transition: all 0.2s;
+    min-height: 100vh;
+    transition: background-color 0.4s ease;
+    cursor: pointer;
+    user-select: none; 
 }
 
-#wrapper {
-    text-align: center;
+#document-container {
+    max-width: 700px;
+    padding: 60px;
+    transition: all 0.4s ease;
 }
 
-.zen-mode {
-    background-color: #f0f4f0;
-    color: #556b2f;
+h1 {
     font-family: serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 2px solid #000;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
 }
 
-#flower {
-    font-size: 80px;
+.legal-mode {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.legalese {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #777;
     margin-bottom: 20px;
-    transition: transform 2s;
+    transition: opacity 0.3s ease;
 }
 
-.glitch-mode {
-    color: white;
-    font-family: 'Courier New', monospace;
+.truth {
+    display: none; 
 }
 
-.glitch-mode #flower {
-    transform: scale(5) rotate(45deg);
-    color: red;
-    filter: blur(2px);
+#instruction {
+    position: fixed;
+    bottom: 20px;
+    font-family: sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #aaa;
 }
 
-.glitch-mode #wrapper {
-    text-align: left;
-    padding: 20px;
+.honest-mode {
+    background-color: #000;
+}
+
+.honest-mode .legalese, .honest-mode h1, .honest-mode #instruction {
+    opacity: 0; 
+}
+
+.honest-mode .truth {
+    display: block;
+    font-family: sans-serif;
+    font-weight: 900;
+    font-size: 50px;
+    color: #ff0000; 
+    text-align: center;
+    margin: 40px 0;
+    line-height: 1.1;
 }
