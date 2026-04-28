@@ -1,70 +1,73 @@
-body {
-    background-color: #f5f5f5;
-    font-family: serif;
+body, html {
     margin: 0;
-    cursor: none; 
-}
-
-#document-container {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 40px;
-    background: white;
-}
-
-.clause {
-    margin-bottom: 60px;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 20px;
-}
-
-.legalese {
-    color: #888;
-    font-style: italic;
-    font-size: 14px;
-}
-
-.redaction-zone {
-    position: relative;
-    background-color: #000;
-    padding: 20px;
-    margin-top: 10px;
+    padding: 0;
+    height: 100%;
+    width: 100%;
     overflow: hidden;
+    background-color: #000;
+    cursor: none;
 }
 
-.truth {
+.content-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    max-width: 800px;
+    padding: 40px;
+}
+
+#legalese-layer {
+    background-color: #f5f5f5;
+    color: #888;
+    font-family: serif;
+    z-index: 1;
+}
+
+#legalese-layer h1 {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+#truth-layer {
+    background-color: #1a1a1a; 
     color: #ff0000;
-    font-family: sans-serif;
-    font-weight: 900;
-    font-size: 24px;
-    margin: 0;
-    text-transform: uppercase;
-    
-    mask-image: radial-gradient(
-        circle 100px at var(--x) var(--y), 
-        black 100%, 
-        transparent 0%
-    );
+    font-family: 'Courier New', Courier, monospace;
+    z-index: 2;
+
     -webkit-mask-image: radial-gradient(
-        circle 100px at var(--x) var(--y), 
-        black 100%, 
-        transparent 100%
+        circle 150px at var(--x) var(--y), 
+        rgba(0,0,0,1) 0%, 
+        rgba(0,0,0,0) 100%
     );
-    
-    opacity: 0; 
-    transition: opacity 0.3s;
+    mask-image: radial-gradient(
+        circle 150px at var(--x) var(--y), 
+        rgba(0,0,0,1) 0%, 
+        rgba(0,0,0,0) 100%
+    );
 }
 
-.scanner-active .truth {
-    opacity: 1;
+#truth-layer h1 {
+    font-weight: 900;
+    text-transform: uppercase;
 }
 
 #instruction {
     position: fixed;
     bottom: 20px;
-    width: 100%;
+    left: 0;
+    right: 0;
     text-align: center;
-    color: #aaa;
-    font-size: 12px;
-    text-transform: uppercase;
+    color: #333;
+    font-family: sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    z-index: 10;
 }
