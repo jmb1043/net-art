@@ -1,19 +1,16 @@
-document.addEventListener('DOMContentLoaded', function() {
-    
+document.addEventListener('mousemove', function(e) {
     const body = document.body;
+    body.classList.add('scanner-active');
 
-    document.addEventListener('mousedown', function() {
-        body.classList.remove('legal-mode');
-        body.classList.add('honest-mode');
-    });
+    const truthElements = document.querySelectorAll('.truth');
 
-    document.addEventListener('mouseup', function() {
-        body.classList.remove('honest-mode');
-        body.classList.add('legal-mode');
-    });
+    truthElements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
 
-    document.addEventListener('mouseleave', function() {
-        body.classList.remove('honest-mode');
-        body.classList.add('legal-mode');
+        el.style.setProperty('--x', x + 'px');
+        el.style.setProperty('--y', y + 'px');
     });
 });
