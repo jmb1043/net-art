@@ -5,15 +5,16 @@ body, html {
     width: 100%;
     overflow: hidden;
     background-color: #000;
-    cursor: none;
+    cursor: none; 
+    position: relative;
 }
 
 .content-layer {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,49 +26,55 @@ body, html {
 }
 
 #legalese-layer {
-    background-color: #f5f5f5;
-    color: #888;
-    font-family: serif;
+    background-color: #f4f4f4;
+    color: #999;
+    font-family: "Times New Roman", serif;
     z-index: 1;
 }
 
 #legalese-layer h1 {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 2px solid #ccc;
     padding-bottom: 10px;
+    color: #444;
+}
+
+@keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+    20%, 22%, 24%, 55% { opacity: 0.8; }
 }
 
 #truth-layer {
-    background-color: #1a1a1a; 
-    color: #ff0000;
-    font-family: 'Courier New', Courier, monospace;
+    background-color: #050505;
+    color: #ff2200; 
+    font-family: 'Courier New', monospace;
     z-index: 2;
+    animation: flicker 5s infinite;
 
     -webkit-mask-image: radial-gradient(
-        circle 150px at var(--x) var(--y), 
-        rgba(0,0,0,1) 0%, 
-        rgba(0,0,0,0) 100%
+        circle 250px at var(--x) var(--y), 
+        black 100%, 
+        transparent 100%
     );
     mask-image: radial-gradient(
-        circle 150px at var(--x) var(--y), 
-        rgba(0,0,0,1) 0%, 
-        rgba(0,0,0,0) 100%
+        circle 250px at var(--x) var(--y), 
+        black 100%, 
+        transparent 100%
     );
 }
 
 #truth-layer h1 {
     font-weight: 900;
-    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 #instruction {
     position: fixed;
-    bottom: 20px;
-    left: 0;
-    right: 0;
+    bottom: 25px;
+    width: 100%;
     text-align: center;
-    color: #333;
+    color: #666;
     font-family: sans-serif;
     font-size: 10px;
-    letter-spacing: 2px;
+    letter-spacing: 4px;
     z-index: 10;
 }
